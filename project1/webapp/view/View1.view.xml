@@ -1,7 +1,87 @@
-<mvc:View controllerName="project1.controller.View1"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-        <content />
-    </Page>
+<mvc:View
+    controllerName="project1.controller.View1"
+    xmlns="sap.ui.table"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:u="sap.ui.unified"
+    xmlns:c="sap.ui.core"
+    xmlns:m="sap.m">
+    <m:App>
+        <m:pages>
+            <m:Page title="Travel List">
+                <m:content>
+                    <m:Button text="Create New" press="onCreatePress" />
+                    <m:Button text="Update Selected" press="onUpdatePress" />
+                    <m:Button text="Delete Selected" press="onDeletePress" />
+                    <Table
+                        id="travelListTable"
+                        rows="{/Travel}"
+                        selectionMode="MultiToggle"
+                        ariaLabelledBy="title">
+                        <extension>
+                            <m:OverflowToolbar>
+                                <m:Title id="title" text="Travel"/>
+                            </m:OverflowToolbar>
+                        </extension>
+                        <columns>
+                            <Column width="6rem" filterProperty="TravelID" sortProperty="TravelID">
+                                <m:Label text="TravelID" />
+                                <template>
+                                    <m:Text text="{TravelID}" wrapping="false" />
+                                </template>
+                            </Column>
+
+                            <Column width="6rem" filterProperty="AgencyID" sortProperty="AgencyID">
+                                <m:Label text="AgencyID" />
+                                <template>
+                                    <m:Text text="{AgencyID}" wrapping="false" />
+                                </template>
+                            </Column>
+
+                            <Column width="12rem" filterProperty="AgencyName" sortProperty="AgencyName">
+                                <m:Label text="AgencyName" />
+                                <template>
+                                    <m:Text text="{AgencyName}" wrapping="false" />
+                                </template>
+                            </Column>
+
+                            <Column width="6rem" filterProperty="CustomerID" sortProperty="CustomerID">
+                                <m:Label text="CustomerID" />
+                                <template>
+                                    <m:Text text="{CustomerID}" wrapping="false" />
+                                </template>
+                            </Column>
+
+                            <Column width="12rem" filterProperty="CustomerName" sortProperty="CustomerName">
+                                <m:Label text="CustomerName" />
+                                <template>
+                                    <m:Text text="{CustomerName}" wrapping="false" />
+                                </template>
+                            </Column>
+
+                            <Column width="6rem" filterProperty="BeginDate" sortProperty="BeginDate">
+                                <m:Label text="BeginDate" />
+                                <template>
+                                    <m:Text text="{path: 'BeginDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}" wrapping="false" />
+                                </template>
+                            </Column>
+
+                            <Column width="6rem" filterProperty="EndDate" sortProperty="EndDate">
+                                <m:Label text="EndDate" />
+                                <template>
+                                    <m:Text text="{path: 'EndDate', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}" wrapping="false" />
+                                </template>
+                            </Column>
+
+                            <Column width="6rem" filterProperty="StatusText" sortProperty="StatusText">
+                                <m:Label text="StatusText" />
+                                <template>
+                                    <m:Text text="{StatusText}" wrapping="false" />
+                                </template>
+                            </Column>
+                        </columns>
+                    </Table>
+                </m:content>
+            </m:Page>
+        </m:pages>
+    </m:App>
 </mvc:View>
